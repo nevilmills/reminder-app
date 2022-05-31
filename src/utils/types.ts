@@ -1,5 +1,5 @@
 export type FilterOptions = "all" | "incomplete" | "completed";
-export type Todo = {
+export type TodoEntry = {
   id: string;
   text: string;
   completed: boolean;

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Todo } from "../utils/types";
+import { TodoEntry } from "../utils/types";
 import { AddTodo } from "./AddTodo";
 import { List } from "./List";
 
 interface TodoCardProps {}
 
 export const TodoCard: React.FC<TodoCardProps> = ({}) => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<TodoEntry[]>([]);
 
   const deleteTodo = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const newTodos = todos.filter((todo) => todo.text != e.currentTarget.value);
@@ -36,22 +36,11 @@ export const TodoCard: React.FC<TodoCardProps> = ({}) => {
       <div className="mt-4">
         <List
           todos={todos}
+          setTodos={setTodos}
           deleteTodo={deleteTodo}
           toggleComplete={toggleComplete}
         />
       </div>
-      <div className="mt-4">
-        <AddTodo todos={todos} setTodos={setTodos} />
-      </div>
-      <button
-        onClick={() =>
-          todos.forEach((todo) =>
-            console.log(`id: ${todo.id}, text: ${todo.text}`)
-          )
-        }
-      >
-        Click me
-      </button>
     </div>
   );
 };

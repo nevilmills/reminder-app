@@ -1,11 +1,11 @@
 import { title } from "process";
 import React, { useState } from "react";
-import { Todo } from "../utils/types";
+import { TodoEntry } from "../utils/types";
 import { v4 as uuidv4 } from "uuid";
 
 interface AddTodoProps {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  todos: TodoEntry[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoEntry[]>>;
 }
 
 export const AddTodo: React.FC<AddTodoProps> = ({ todos, setTodos }) => {
